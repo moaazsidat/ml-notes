@@ -222,7 +222,7 @@ learner.fit(lr, cycle_len=1, cycle_mult=2)
     - all reviews are concated
     - 64 million words into 64 sections
     - a matrix which is 64 columns, 10 million block, so 10M x 64, each represents a batch
-    - batch is length 64, each sequence of up to length 70
+    - batch is length 64, each sequence of up to length 70 (this is randomized to "shuffle" in each epoch)
     - next(iter(...)) gives a 75x64
     - each column contains multiple sentences
     - vocab is a tensor - all the possilbe tokens
@@ -234,4 +234,18 @@ learner.fit(lr, cycle_len=1, cycle_mult=2)
     - there are existing pre-trained embedding matrices that you can download/use
         - e.g. word2vec
         - building a whole trained language model worked more effectively
-        - rnn using lstm
+        - model : rnn using lstm
+    - min freq = n := if word occurs less than n times, ignore
+    - words are mapped to integers (vocab read stored array index, sorted by freq)
+        - turned into vectors
+        - deep learning helps build context into understanding language
+    - each word in vocab becomes an embedding matrix, so if 34945 in vocab, we end up with 34945 x n matrix where n is the size of the embedding matrix for each of the words in the vocab
+        - just like a categorical variable 
+        - set to 200, > 50 since a word has a lot more nuance to it than a particular concept in a data
+    - dropout : spread over the model, will be covered later, prevents overfitting
+    - learning rate clipping : early short circuit preventing large learning rate
+- using the pretrained model
+    - using the same vocab, each word maps to the earlier integer
+    - do the same thing is cats vs dogs
+        - unfreeze and retrain specific layers
+- idea : training language models on medical journals, make it downloadable, let someone finetune it for prostrate cancer
