@@ -1,4 +1,4 @@
-# fastai
+# course18.fastai.com
 
 ## Cats vs Dogs
 
