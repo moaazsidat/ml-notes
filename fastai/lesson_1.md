@@ -249,3 +249,6 @@ learner.fit(lr, cycle_len=1, cycle_mult=2)
     - do the same thing is cats vs dogs
         - unfreeze and retrain specific layers
 - idea : training language models on medical journals, make it downloadable, let someone finetune it for prostrate cancer
+
+
+## Collaborative filtering
